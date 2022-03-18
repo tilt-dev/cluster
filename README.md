@@ -1,5 +1,6 @@
 # clusterid
 
+[![Build Status](https://circleci.com/gh/tilt-dev/clusterid/tree/main.svg?style=shield)](https://circleci.com/gh/tilt-dev/clusterid)
 [![GoDoc](https://godoc.org/github.com/tilt-dev/clusterid?status.svg)](https://pkg.go.dev/github.com/tilt-dev/clusterid)
 
 A small Kubernetes cluster detection library.
