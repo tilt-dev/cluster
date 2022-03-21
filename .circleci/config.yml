@@ -4,12 +4,12 @@ orbs:
 jobs:
   build:
     docker:
-      - image: cimg/go:1.17
+      - image: cimg/go:1.18
     steps:
       - checkout
       - run: go get -v -t -d ./...
       - run: go test -v ./...
-      - run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.38.0
+      - run: go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.45.0
       - run: make golangci-lint
       - slack/notify-on-failure:
           only_for_branches: main
