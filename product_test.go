@@ -74,6 +74,10 @@ func TestProductFromContext(t *testing.T) {
 		Cluster: "k3d-k3s-default",
 	}
 	rancherDesktopContext := &api.Context{Cluster: "rancher-desktop"}
+	// colima start ...
+	colimaDefaultContext := &api.Context{Cluster: "colima"}
+	// colima -p custom start ...
+	colimaProfileContext := &api.Context{Cluster: "colima-custom"}
 	minikubeRandomName := &api.Context{
 		Cluster: "custom-name",
 	}
@@ -102,6 +106,8 @@ func TestProductFromContext(t *testing.T) {
 		{ProductMinikube, minikubeRandomName, minikubeRandomNameCluster},
 		{ProductK3D, k3d3xContext, defaultCluster},
 		{ProductRancherDesktop, rancherDesktopContext, defaultCluster},
+		{ProductColima, colimaDefaultContext, defaultCluster},
+		{ProductColima, colimaProfileContext, defaultCluster},
 	}
 
 	for i, tt := range table {
