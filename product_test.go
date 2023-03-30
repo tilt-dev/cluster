@@ -38,6 +38,12 @@ func TestProductFromContext(t *testing.T) {
 	gkeContext := &api.Context{
 		Cluster: "gke_blorg-dev_us-central1-b_blorg",
 	}
+	awsContext := &api.Context{
+		Cluster: "arn:aws:eks:us-east-1:81111:cluster/blorg",
+	}
+	eksctlContext := &api.Context{
+		Cluster: "blorg.us-east-1.eksctl.io",
+	}
 	kind5Context := &api.Context{
 		Cluster: "kind",
 	}
@@ -108,6 +114,8 @@ func TestProductFromContext(t *testing.T) {
 		{ProductRancherDesktop, rancherDesktopContext, defaultCluster},
 		{ProductColima, colimaDefaultContext, defaultCluster},
 		{ProductColima, colimaProfileContext, defaultCluster},
+		{ProductEKS, awsContext, defaultCluster},
+		{ProductEKS, eksctlContext, defaultCluster},
 	}
 
 	for i, tt := range table {
