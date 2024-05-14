@@ -50,6 +50,9 @@ func TestProductFromContext(t *testing.T) {
 	microK8sContext := &api.Context{
 		Cluster: "microk8s-cluster",
 	}
+	microK8sContextPrefixWithoutCluster := &api.Context{
+		Cluster: "microk8s",
+	}
 	microK8sPrefixContext := &api.Context{
 		Cluster: "microk8s-cluster-dev-cluster-1",
 	}
@@ -101,6 +104,7 @@ func TestProductFromContext(t *testing.T) {
 		{ProductGKE, gkeContext, defaultCluster},
 		{ProductKIND, kind5Context, defaultCluster},
 		{ProductMicroK8s, microK8sContext, defaultCluster},
+		{ProductMicroK8s, microK8sContextPrefixWithoutCluster, defaultCluster},
 		{ProductMicroK8s, microK8sPrefixContext, defaultCluster},
 		{ProductCRC, crcContext, defaultCluster},
 		{ProductCRC, crcPrefixContext, defaultCluster},
